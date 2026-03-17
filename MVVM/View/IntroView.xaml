@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DecadePerfume.MVVM.View.IntroView"
+             NavigationPage.HasNavigationBar="False"
+             Padding="0">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#000000" Offset="0.0"/>
+            <GradientStop Color="#111111" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- TOP LOGO AREA -->
+        <StackLayout
+            Grid.Row="0"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="20">
+
+            <Image
+                Source="decadelogo.png"
+                WidthRequest="260"
+                HeightRequest="260"
+                Aspect="AspectFit"/>
+
+        </StackLayout>
+
+
+        <!-- BOTTOM CARD -->
+        <Frame
+            Grid.Row="1"
+            CornerRadius="20"
+            Padding="30"
+            Margin="0"
+            HasShadow="False">
+
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F2B705" Offset="0"/>
+                    <GradientStop Color="#C89200" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+
+            <StackLayout Spacing="20">
+
+                <!-- Welcome Text -->
+                <Label
+                    Text="Hello Users!"
+                    FontSize="32"
+                    FontAttributes="Bold"
+                    TextColor="#111111"/>
+
+                <Label
+                    Text="Experience the elegance of Decade Perfume. Discover timeless fragrance crafted to leave a lasting impression wherever you go."
+                    FontSize="14"
+                    TextColor="#111111"/>
+
+                <!-- Buttons -->
+                <Grid ColumnDefinitions="*,*"
+                      Margin="0,20,0,0"
+                      ColumnSpacing="20">
+
+                    <Button
+                        Grid.Column="0"
+                        Text="Sign In"
+                        BackgroundColor="#111111"
+                        TextColor="White"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        Clicked="SignIn_Clicked"/>
+
+                    <Button
+                        Grid.Column="1"
+                        Text="Sign Up"
+                        BackgroundColor="#FFC107"
+                        TextColor="#111111"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        Clicked="SignUp_Clicked"/>
+
+                </Grid>
+
+            </StackLayout>
+
+        </Frame>
+
+    </Grid>
+
+</ContentPage>

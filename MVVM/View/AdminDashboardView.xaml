@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DecadePerfume.MVVM.View.AdminDashboardView">
+    
+    <!-- SIDEBAR MENU -->
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Menu" BackgroundColor="Black">
+
+            <StackLayout Padding="20" Spacing="20">
+
+                <!-- LOGO -->
+                <Image Source="decadelogo.png"
+                       HeightRequest="120"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Admin Panel"
+                       FontSize="20"
+                       TextColor="#F7D060"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"/>
+
+                <!-- MENU BUTTONS -->
+
+                <Button Text="Dashboard"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Dashboard_Clicked"/>
+
+                <Button Text="Product Management"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Products_Clicked"/>
+
+                <Button Text="Category Management"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Category_Clicked"/>
+
+                <Button Text="Inventory"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Inventory_Clicked"/>
+
+                <Button Text="Reports"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Reports_Clicked"/>
+
+                <Button Text="User Management"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Users_Clicked"/>
+
+                <Button Text="Logout"
+                        BackgroundColor="Red"
+                        TextColor="White"
+                        Clicked="Logout_Clicked"/>
+
+            </StackLayout>
+
+        </ContentPage>
+    </FlyoutPage.Flyout>
+
+
+    <!-- MAIN PAGE -->
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Title="Admin Dashboard" BackgroundColor="Black">
+
+                    <StackLayout Padding="30" Spacing="20">
+
+                        <Label Text="Decade Perfume Admin Dashboard"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               TextColor="#F7D060"
+                               HorizontalOptions="Center"/>
+
+                        <Label Text="Welcome Administrator"
+                               FontSize="18"
+                               TextColor="White"
+                               HorizontalOptions="Center"/>
+
+                    </StackLayout>
+
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

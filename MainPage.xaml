@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DecadePerfume.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Padding="0">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#000000" Offset=" 0.0 "/>
+            <GradientStop Color="#111111" Offset=" 0.0 "/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Title -->
+        <Label
+            Grid.Row="0"
+            Text="DECADE"
+            FontSize="60"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            Margin="0,40,0,10"/>
+        <Label
+            Grid.Row="0"
+            Text="Perfume"
+            FontSize="32"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            Margin="0,120,0,0"/>
+
+
+        <!-- Center Image -->
+        <Image
+            Grid.Row="1"
+            Source="getstartedimg.png"
+            WidthRequest="500"
+            HeightRequest="400"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Margin="0,99,0,0"
+            Aspect="AspectFit"/>
+
+        <!-- Button Below Image -->
+        <Button
+            Grid.Row="2"
+            Text="Get Started"
+            WidthRequest="250"
+            HeightRequest="50"
+            HorizontalOptions="Center"
+            Margin="0,20,0,65"
+            Clicked="Get_Clicked"/>
+
+    </Grid>
+</ContentPage>

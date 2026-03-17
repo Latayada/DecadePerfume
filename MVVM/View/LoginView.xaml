@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DecadePerfume.MVVM.View.LoginView"
+             Background="Black">
+
+    <Grid RowDefinitions="2.2*,1*">
+ 
+        <!-- GOLD TOP SECTION -->
+        <Frame Grid.Row="0"
+               CornerRadius="0"
+               HasShadow="False"
+               Padding="30"
+               BackgroundColor="Transparent">
+            <Frame.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#F2B705" Offset="0"/>
+                    <GradientStop Color="#C89200" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+
+            <StackLayout Spacing="12" VerticalOptions="Center">
+
+                <!-- TITLE -->
+                <Label Text="Welcome back to"
+                       FontSize="18"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,0"
+                       TextColor="Black"/>
+                <Label Text="Decade Perfume"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"/>
+
+                
+                <!-- USERNAME FIELD -->
+                <Border Stroke="#F7D060"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="15,2">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                        <Image WidthRequest="20" HeightRequest="20" VerticalOptions="Center">
+                            <Image.Source>
+                                <FontImageSource Glyph="&#xe802;"
+                                                 FontFamily="Fontello"
+                                                 Color="#000000"
+                                                 Size="20"/>
+                            </Image.Source>
+                        </Image>
+                        <Entry x:Name="UsernameEntry"
+                               Grid.Column="1"
+                               Placeholder="Username"
+                               BackgroundColor="Transparent"
+                               PlaceholderColor="#F7D060"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+                    </Grid>
+                </Border>
+
+
+                <!-- Password -->
+                <Border Stroke="#F7D060"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="15,2">
+
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          ColumnSpacing="15">
+
+
+                        <Image WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center">
+                            <Image.Source>
+                                <FontImageSource Glyph="&#xe803;"
+                                                 FontFamily="Fontello"
+                                                 Color="#000000"
+                                                 Size="20"/>
+                            </Image.Source>
+                        </Image>
+
+                        <!-- Password Entry -->
+                        <Entry x:Name="PasswordEntry"
+                               Grid.Column="1"
+                               Placeholder="Password"
+                               IsPassword="True"
+                               BackgroundColor="Transparent"
+                               PlaceholderColor="#F7D060"
+                               TextColor="White"
+                               VerticalOptions="Center"/>
+
+                        <Image Grid.Column="2"
+                               WidthRequest="20"
+                               HeightRequest="20"
+                               VerticalOptions="Center">
+
+                            <Image.Source>
+                                <FontImageSource Glyph="&#xe800;"
+                                                 FontFamily="Fontello"
+                                                 Color="#000000"
+                                                 Size="20"/>
+                            </Image.Source>
+
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="EyeIcon_Clicked"/>
+                            </Image.GestureRecognizers>
+
+                        </Image>
+
+                    </Grid>
+                </Border>
+                
+                <!-- FORGOT PASSWORD -->
+                <Label Text="Forgot Password?"
+                       FontSize="13"
+                       TextColor="Black"
+                       HorizontalOptions="End"
+                       TextDecorations="Underline">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ForgotPassword_Tapped"/>
+                    </Label.GestureRecognizers>
+
+                </Label>
+
+                <!-- ERROR LABEL -->
+                <Label x:Name="ErrorLabel"
+                       Text=""
+                       TextColor="Red"
+                       FontSize="13"
+                       HorizontalTextAlignment="Center"
+                       Margin="0,2,0,0"/>
+
+                <!-- LOGIN BUTTON -->
+                <Button Text="Login"
+                        HeightRequest="55"
+                        CornerRadius="25"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Clicked="LoginButton_Clicked"/>
+
+                <!-- SIGN UP -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+                    <Label Text="New to Decade Perfume?" FontSize="13" TextColor="White"/>
+                    <Label Text="Sign Up" FontSize="13" TextDecorations="Underline" TextColor="White">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="SignUpHere_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </HorizontalStackLayout>
+
+            </StackLayout>
+        </Frame>
+
+        <!-- BLACK BOTTOM SECTION -->
+        <Grid Grid.Row="1"
+              BackgroundColor="Black"
+              Padding="30">
+            <StackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="12">
+                <Image Source="decadelogo.png" WidthRequest="120" HeightRequest="120"/>
+                <Label Text="Luxury in Every Drop."
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#F2B705"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="Experience timeless fragrance and elegance."
+                       FontSize="13"
+                       TextColor="White"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
