@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DecadePerfume.MVVM.View.InventoryView"
+             Title="InventoryView">
+    <StackLayout Padding="20">
+
+        <Label Text="Inventory Management" TextColor="#F7D060"/>
+
+        <Entry Placeholder="Product Name"/>
+        <Entry Placeholder="Stock Quantity" Keyboard="Numeric"/>
+
+        <Button Text="Update Stock"/>
+
+        <Label Text="Low Stock Alert: Below 5 items"
+               TextColor="Red"/>
+
+    </StackLayout>
+</ContentPage>

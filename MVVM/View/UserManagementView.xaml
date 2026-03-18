@@ -4,45 +4,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DecadePerfume.MVVM.View.UserManagementView">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
+    <StackLayout Padding="20">
 
-        <Label Text="User Management" FontSize="24" FontAttributes="Bold" TextColor="#F2B705"/>
+        <Label Text="User Management" TextColor="#F7D060"/>
 
-        <!-- Add / Update User -->
-        <Entry x:Name="UsernameEntry" Placeholder="Username" TextColor="White" BackgroundColor="#1A1A1A"/>
-        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="White" BackgroundColor="#1A1A1A"/>
-        <Entry x:Name="EmailEntry" Placeholder="Email" TextColor="White" BackgroundColor="#1A1A1A"/>
-        <Entry x:Name="ContactEntry" Placeholder="Contact" TextColor="White" BackgroundColor="#1A1A1A"/>
-        <Picker x:Name="RolePicker" Title="Select Role" TextColor="White" BackgroundColor="#1A1A1A">
+        <Entry x:Name="UsernameEntry" Placeholder="Username"/>
+        <Entry x:Name="PasswordEntry" Placeholder="Password"/>
+        <Picker x:Name="RolePicker" Title="Select Role">
             <Picker.Items>
-                <x:String>user</x:String>
                 <x:String>admin</x:String>
+                <x:String>user</x:String>
             </Picker.Items>
         </Picker>
 
-        <!--<HorizontalStackLayout Spacing="10">
-            <Button Text="Add User" Clicked="AddUser_Clicked" BackgroundColor="#F2B705" TextColor="Black" CornerRadius="10"/>
-            <Button Text="Update User" Clicked="UpdateUser_Clicked" BackgroundColor="#F2B705" TextColor="Black" CornerRadius="10"/>
-        </HorizontalStackLayout>-->
+        <!--<Button Text="Add User" Clicked="AddUser_Clicked"/>-->
+        <Button Text="Edit User"/>
+        <Button Text="Delete User"/>
 
-        <Label Text="Registered Users" FontSize="18" TextColor="#F2B705"/>
-
-        <!-- Users List -->
-        <CollectionView x:Name="UsersCollectionView" SelectionMode="Single" >
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BackgroundColor="#1A1A1A" CornerRadius="10" Padding="10" Margin="0,5">
-                        <HorizontalStackLayout Spacing="10">
-                            <Label Text="{Binding Username}" TextColor="White" FontAttributes="Bold"/>
-                            <Label Text="{Binding Role}" TextColor="#F2B705"/>
-                            <Label Text="{Binding Email}" TextColor="White"/>
-                            <Label Text="{Binding Contact}" TextColor="White"/>
-                            <!--<Button Text="Delete" Clicked="DeleteUser_Clicked" BackgroundColor="#BD0000" TextColor="White" CornerRadius="10"/>-->
-                        </HorizontalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+    </StackLayout>
     
 </ContentPage>

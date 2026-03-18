@@ -9,7 +9,7 @@ public partial class RegisterView : ContentPage
         new Users
         {
             Username = "admin",
-            Password = "1234",
+            Password = "123",
             Role = "admin"
         }
     };

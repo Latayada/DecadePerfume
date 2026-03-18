@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DecadePerfume.MVVM.View.AdminDashboardView">
     
+
     <!-- SIDEBAR MENU -->
     <FlyoutPage.Flyout>
         <ContentPage Title="Menu" BackgroundColor="Black">
 
-            <StackLayout Padding="20" Spacing="20">
+            <StackLayout Padding="20" Spacing="15">
 
                 <!-- LOGO -->
                 <Image Source="decadelogo.png"
@@ -27,6 +28,11 @@
                         TextColor="Black"
                         Clicked="Dashboard_Clicked"/>
 
+                <Button Text="User Management"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Users_Clicked"/>
+
                 <Button Text="Product Management"
                         BackgroundColor="#F7D060"
                         TextColor="Black"
@@ -37,20 +43,30 @@
                         TextColor="Black"
                         Clicked="Category_Clicked"/>
 
-                <Button Text="Inventory"
+                <Button Text="Inventory Management"
                         BackgroundColor="#F7D060"
                         TextColor="Black"
                         Clicked="Inventory_Clicked"/>
+
+                <Button Text="POS (Point of Sale)"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="POS_Clicked"/>
+
+                <!--<Button Text="Orders / Checkout"
+                        BackgroundColor="#F7D060"
+                        TextColor="Black"
+                        Clicked="Orders_Clicked"/>-->
 
                 <Button Text="Reports"
                         BackgroundColor="#F7D060"
                         TextColor="Black"
                         Clicked="Reports_Clicked"/>
 
-                <Button Text="User Management"
+                <!--<Button Text="User Profile"
                         BackgroundColor="#F7D060"
                         TextColor="Black"
-                        Clicked="Users_Clicked"/>
+                        Clicked="Profile_Clicked"/>-->
 
                 <Button Text="Logout"
                         BackgroundColor="Red"
@@ -62,30 +78,79 @@
         </ContentPage>
     </FlyoutPage.Flyout>
 
-
     <!-- MAIN PAGE -->
     <FlyoutPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage Title="Admin Dashboard" BackgroundColor="Black">
+                <ContentPage Title="Dashboard" BackgroundColor="Black">
+                    <ScrollView>
+                        <StackLayout Padding="20" Spacing="25">
 
-                    <StackLayout Padding="30" Spacing="20">
+                            <!-- Welcome Message -->
+                            <StackLayout Spacing="5" HorizontalOptions="Center">
+                                <Label Text="Decade Perfume Admin Dashboard"
+                                   FontSize="26"
+                                   FontAttributes="Bold"
+                                   TextColor="#F7D060"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="Welcome Administrator"
+                                   FontSize="18"
+                                   TextColor="White"
+                                   HorizontalOptions="Center"/>
+                            </StackLayout>
 
-                        <Label Text="Decade Perfume Admin Dashboard"
-                               FontSize="26"
-                               FontAttributes="Bold"
-                               TextColor="#F7D060"
-                               HorizontalOptions="Center"/>
+                            <!-- Quick Overview Grid -->
+                            <Grid ColumnSpacing="15" RowSpacing="15">
 
-                        <Label Text="Welcome Administrator"
-                               FontSize="18"
-                               TextColor="White"
-                               HorizontalOptions="Center"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
 
-                    </StackLayout>
+                                <!-- Total Users -->
+                                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#F7D060" CornerRadius="15" Padding="20">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="Total Users" TextColor="Black" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="10" TextColor="Black" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
 
+                                <!-- Total Products -->
+                                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#F7D060" CornerRadius="15" Padding="20">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="Total Products" TextColor="Black" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="25" TextColor="Black" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- Total Sales -->
+                                <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#F7D060" CornerRadius="15" Padding="20">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Label Text="Total Sales" TextColor="Black" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                                        <Label Text="₱5000" TextColor="Black" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+
+                                <!-- Quick Actions -->
+                                <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#F7D060" CornerRadius="15" Padding="20">
+                                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                                        <Label Text="Quick Actions" TextColor="Black" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                                        <Button Text="Add Product" BackgroundColor="White" TextColor="Black"/>
+                                        <Button Text="Add User" BackgroundColor="White" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+
+                            </Grid>
+
+                        </StackLayout>
+                    </ScrollView>
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>
     </FlyoutPage.Detail>
+
 </FlyoutPage>

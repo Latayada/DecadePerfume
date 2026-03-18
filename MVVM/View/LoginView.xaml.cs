@@ -15,7 +15,7 @@ public partial class LoginView : ContentPage
     // Toggle password visibility
     private void EyeIcon_Clicked(object sender, EventArgs e)
     {
-        _isPasswordVisible = !_isPasswordVisible;
+        _isPasswordVisible = !_isPasswordVisible; 
         PasswordEntry.IsPassword = !_isPasswordVisible;
 
         if (sender is Image img)
@@ -24,7 +24,7 @@ public partial class LoginView : ContentPage
             {
                 Glyph = _isPasswordVisible ? "\ue801" : "\ue800",
                 FontFamily = "Fontello",
-                Color = Color.FromArgb("#F7D060"),
+                Color = Color.FromArgb("#000000"),
                 Size = 20
             };
         }
@@ -42,22 +42,33 @@ public partial class LoginView : ContentPage
         string username = UsernameEntry.Text?.Trim();
         string password = PasswordEntry.Text?.Trim();
 
+        // BOTH EMPTY
+        if (string.IsNullOrWhiteSpace(username) && string.IsNullOrWhiteSpace(password))
+        {
+            ErrorLabel.Text = "Please input username and password.";
+            return;
+        }
+
+        // USERNAME EMPTY
         if (string.IsNullOrWhiteSpace(username))
         {
-            ErrorLabel.Text = "Please enter username.";
+            ErrorLabel.Text = "Please input username.";
             UsernameEntry.Focus();
             return;
         }
 
+        // PASSWORD EMPTY
         if (string.IsNullOrWhiteSpace(password))
         {
-            ErrorLabel.Text = "Please enter password.";
+            ErrorLabel.Text = "Please input password.";
             PasswordEntry.Focus();
             return;
         }
 
-        var user = RegisterView.GetRegisteredUsers()
-                    .FirstOrDefault(u => u.Username == username);
+        var users = RegisterView.GetRegisteredUsers();
+
+        // CHECK IF USER EXISTS
+        var user = users.FirstOrDefault(u => u.Username == username);
 
         if (user == null)
         {
@@ -65,6 +76,17 @@ public partial class LoginView : ContentPage
             return;
         }
 
+        // WRONG USERNAME & PASSWORD (extra strict check)
+        bool usernameExists = users.Any(u => u.Username == username);
+        bool passwordMatch = users.Any(u => u.Password == password);
+
+        if (!usernameExists && !passwordMatch)
+        {
+            ErrorLabel.Text = "Incorrect username and password.";
+            return;
+        }
+
+        // WRONG PASSWORD ONLY
         if (user.Password != password)
         {
             ErrorLabel.Text = "Incorrect password.";
@@ -73,7 +95,7 @@ public partial class LoginView : ContentPage
             return;
         }
 
-        // Navigate based on role
+        // SUCCESS LOGIN
         if (user.Role == "admin")
             Navigation.PushAsync(new AdminDashboardView());
         else
